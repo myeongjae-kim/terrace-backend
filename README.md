@@ -5,6 +5,15 @@
 
 ---
 
+# 프로젝트 실행
+
+```bash
+cd docker
+./install-env.sh
+docker-compose docker-compose-db.yml up -d
+docker-compose up -d
+```
+
 # Supabase
 
 [Supabase](https://supabase.com) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
