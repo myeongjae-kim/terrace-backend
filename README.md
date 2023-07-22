@@ -14,6 +14,27 @@ docker-compose docker-compose-db.yml up -d
 docker-compose up -d
 ```
 
+## 권한 관리
+
+postgres의 role을 이용하여 권한을 관리한다. 예를 들어서 owner라는 권한을 생성하려면
+
+```sql
+CREATE ROLE owner;
+```
+
+권한을 주고 싶은 테이블에 대해서 아래 쿼리를 실행해 권한을 부여한다.
+
+```sql
+grant select, update, usage on sequence your_table_name_id_seq to owner;
+grant delete, insert, references, select, trigger, truncate, update on your_table_name to owner;
+```
+
+auth DB의 user 테이블에서 특정 유저에게 권한을 부여한다.
+
+```sql
+UPDATE auth.users SET role = 'owner' WHERE id = 'specific_user_id';
+```
+
 # Supabase
 
 [Supabase](https://supabase.com) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
@@ -269,4 +290,3 @@ Our approach for client libraries is modular. Each sub-library is a standalone i
 - [Ukrainian / Українська](/i18n/README.uk.md)
 - [Vietnamese / Tiếng Việt](/i18n/README.vi-vn.md)
 - [List of translations](/i18n/languages.md) <!--- Keep only this -->
-
