@@ -1,22 +1,22 @@
 name: Generate Embeddings for Search
 
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - '.github/workflows/search.yml'
-      - 'supabase/migrations/**'
-      - 'apps/docs/**'
-      - 'spec/**'
-  workflow_dispatch:
-    inputs:
-      refresh:
-        description: 'Refresh all pages'
-        required: false
-        type: boolean
-  schedule:
-    - cron: '0 0 * * *'
+#on:
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - '.github/workflows/search.yml'
+#      - 'supabase/migrations/**'
+#      - 'apps/docs/**'
+#      - 'spec/**'
+#  workflow_dispatch:
+#    inputs:
+#      refresh:
+#        description: 'Refresh all pages'
+#        required: false
+#        type: boolean
+#  schedule:
+#    - cron: '0 0 * * *'
 
 jobs:
   deploy:
